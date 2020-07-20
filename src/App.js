@@ -4,7 +4,23 @@ import Box from "./components/box/Box";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { colors: ["azul", "blanco", "verde", "fuccia"] };
+    this.state = {
+      colors: [
+        "#00ffb3",
+        "#0fac7d",
+        "#CD853F",
+        "#0d6a4e",
+        "#BA55D3",
+        "#083c2c",
+        "#20B2AA",
+        "#FF00FF",
+      ],
+    };
+    this.setState((state) => {
+      const previousColors = [...state.colors];
+      previousColors.push("#20B2AA", "#BA55D3", "#20B2AA", "#BA55D3");
+      return { colors: previousColors };
+    });
   }
 
   render() {
@@ -15,7 +31,7 @@ class App extends React.Component {
         </header>
         <div className="direction-row">
           {this.state.colors.map((color) => {
-            return <Box></Box>;
+            return <Box color={color}></Box>;
           })}
         </div>
       </div>
